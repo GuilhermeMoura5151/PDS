@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex9_2">
+  <ClassDiagramComponents>
+    <Class name="ex9_2" package="ex9_2" visibility="public" xPosition="260.0" yPosition="82.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RemoteControl" package="ex9_2" visibility="public" xPosition="711.0" yPosition="68.0">
+      <Fields>
+        <Field name="command" type="Command" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCommand" returnType="Command" visibility="public"/>
+        <Method name="setCommand" returnType="void" visibility="public">
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="executeCommand" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UndoCommand" package="ex9_2" visibility="public" xPosition="1103.0" yPosition="531.0">
+      <Fields>
+        <Field name="receiver" type="CollectionReceiver&lt;E&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="CollectionReceiver&lt;E&gt;" name="receiver"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CollectionReceiver" package="ex9_2" visibility="public" xPosition="215.0" yPosition="241.0">
+      <Fields>
+        <Field name="collection" type="Collection&lt;E&gt;" visibility="private"/>
+        <Field name="previousCollection" type="Collection&lt;E&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Collection&lt;E&gt;" name="collection"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="E" name="element"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="E" name="element"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="saveState" returnType="void" visibility="private"/>
+        <Method name="cloneCollection" returnType="Collection&lt;E&gt;" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="RemoveCommand" package="ex9_2" visibility="public" xPosition="180.0" yPosition="531.0">
+      <Fields>
+        <Field name="removeElement" type="E" visibility="private"/>
+        <Field name="receiver" type="CollectionReceiver&lt;E&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="CollectionReceiver&lt;E&gt;" name="receiver"/>
+          <Argument type="E" name="element"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+        <Method name="getElement" returnType="E" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddCommand" package="ex9_2" visibility="public" xPosition="664.0" yPosition="531.0">
+      <Fields>
+        <Field name="addElement" type="E" visibility="private"/>
+        <Field name="receiver" type="CollectionReceiver&lt;E&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="CollectionReceiver&lt;E&gt;" name="receiver"/>
+          <Argument type="E" name="element"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+        <Method name="getElement" returnType="E" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Command" package="ex9_2" visibility="public" xPosition="773.0" yPosition="315.0">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="command" source="ex9_2.RemoteControl" target="ex9_2.Command" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex9_2.AddCommand" target="ex9_2.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex9_2.UndoCommand" target="ex9_2.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex9_2.RemoveCommand" target="ex9_2.Command"/>
+    <UseRelation source="ex9_2.RemoteControl" target="ex9_2.Command" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

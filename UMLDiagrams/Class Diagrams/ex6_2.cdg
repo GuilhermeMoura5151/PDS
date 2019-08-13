@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex2">
+  <ClassDiagramComponents>
+    <Class name="aula6_2" package="ex2" visibility="public" xPosition="103.0" yPosition="64.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="fileTXT" package="ex2" visibility="public" xPosition="1124.0" yPosition="301.0">
+      <Fields>
+        <Field name="file" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadContacts" returnType="List&lt;Contact&gt;" visibility="public"/>
+        <Method name="saveContacts" returnType="boolean" visibility="public">
+          <Argument type="List&lt;Contact&gt;" name="list"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="fileBIN" package="ex2" visibility="public" xPosition="1124.0" yPosition="150.0">
+      <Fields>
+        <Field name="file" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadContacts" returnType="List&lt;Contact&gt;" visibility="public"/>
+        <Method name="saveContacts" returnType="boolean" visibility="public">
+          <Argument type="List&lt;Contact&gt;" name="list"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ContactsStore" package="ex2" visibility="public" xPosition="393.0" yPosition="605.0">
+      <Fields>
+        <Field name="list" type="List&lt;Contact&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="openAndLoad" returnType="void" visibility="public">
+          <Argument type="ContactsStorageInterface" name="store"/>
+        </Method>
+        <Method name="saveAndClose" returnType="void" visibility="public"/>
+        <Method name="saveAndClose" returnType="void" visibility="public">
+          <Argument type="ContactsStorageInterface" name="store"/>
+        </Method>
+        <Method name="exist" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+        <Method name="getByName" returnType="Contact" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="add" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+        <Method name="remove" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Contact" package="ex2" visibility="public" xPosition="391.0" yPosition="36.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="telnumber" type="int" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="telnumber"/>
+          <Argument type="String" name="address"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getTelNumber" returnType="int" visibility="public"/>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="fileCSV" package="ex2" visibility="public" xPosition="1124.0" yPosition="10.0">
+      <Fields>
+        <Field name="file" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadContacts" returnType="List&lt;Contact&gt;" visibility="public"/>
+        <Method name="saveContacts" returnType="boolean" visibility="public">
+          <Argument type="List&lt;Contact&gt;" name="list"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ContactsInterface" package="ex2" visibility="public" xPosition="1061.0" yPosition="619.0">
+      <Methods>
+        <Method name="openAndLoad" returnType="void" visibility="public">
+          <Argument type="ContactsStorageInterface" name="store"/>
+        </Method>
+        <Method name="saveAndClose" returnType="void" visibility="public"/>
+        <Method name="saveAndClose" returnType="void" visibility="public">
+          <Argument type="ContactsStorageInterface" name="store"/>
+        </Method>
+        <Method name="exist" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+        <Method name="getByName" returnType="Contact" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="add" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+        <Method name="remove" returnType="boolean" visibility="public">
+          <Argument type="Contact" name="contact"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ContactsStorageInterface" package="ex2" visibility="public" xPosition="1800.0" yPosition="160.0">
+      <Methods>
+        <Method name="loadContacts" returnType="List&lt;Contact&gt;" visibility="public"/>
+        <Method name="saveContacts" returnType="boolean" visibility="public">
+          <Argument type="List&lt;Contact&gt;" name="list"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ex2.ContactsStore" target="ex2.ContactsStorageInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.fileBIN" target="ex2.ContactsStorageInterface"/>
+    <UseRelation source="ex2.ContactsStore" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="list" source="ex2.ContactsStore" target="ex2.Contact" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Contact&gt;"/>
+    <UseRelation source="ex2.ContactsInterface" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.ContactsInterface" target="ex2.ContactsStorageInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.fileCSV" target="ex2.ContactsStorageInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.fileTXT" target="ex2.ContactsStorageInterface"/>
+    <UseRelation source="ex2.fileCSV" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.fileBIN" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.fileTXT" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.ContactsStorageInterface" target="ex2.Contact" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.ContactsStore" target="ex2.ContactsInterface"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

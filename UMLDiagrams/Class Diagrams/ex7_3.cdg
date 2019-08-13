@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex3">
+  <ClassDiagramComponents>
+    <Class name="Quadrado" package="ex3" visibility="public" xPosition="68.0" yPosition="275.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Bloco" package="ex3" visibility="public" xPosition="748.0" yPosition="275.0">
+      <Fields>
+        <Field name="component" type="List&lt;Component&gt;" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="add" returnType="boolean" visibility="public">
+          <Argument type="Component" name="compon"/>
+        </Method>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rectangulo" package="ex3" visibility="public" xPosition="327.0" yPosition="275.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GeometricFigures" package="ex3" visibility="public" xPosition="691.0" yPosition="15.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Circulo" package="ex3" visibility="public" xPosition="565.0" yPosition="275.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Component" package="ex3" visibility="public" xPosition="407.0" yPosition="15.0">
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="component" source="ex3.Bloco" target="ex3.Component" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Component&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex3.Quadrado" target="ex3.Component"/>
+    <UseRelation source="ex3.Bloco" target="ex3.Component" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex3.Circulo" target="ex3.Component"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex3.Bloco" target="ex3.Component"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex3.Rectangulo" target="ex3.Component"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="aula11_1">
+  <ClassDiagramComponents>
+    <Class name="Inventario" package="aula11_1" visibility="public" xPosition="251.0" yPosition="617.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="registar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="requisitar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="reservar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="cancelaReserva" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="devolver" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Livro" package="aula11_1" visibility="public" xPosition="689.0" yPosition="515.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="autor" type="Autor" visibility="private"/>
+        <Field name="ISBN" type="int" visibility="private"/>
+        <Field name="ano" type="int" visibility="private"/>
+        <Field name="estado" type="EstadoLivro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="int" name="isbn"/>
+          <Argument type="int" name="ano"/>
+          <Argument type="Autor" name="autor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEstado" returnType="EstadoLivro" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="EstadoLivro" name="estado"/>
+        </Method>
+        <Method name="getAutor" returnType="Autor" visibility="public"/>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="getISBN" returnType="int" visibility="public"/>
+        <Method name="getAno" returnType="int" visibility="public"/>
+        <Method name="registar" returnType="void" visibility="public"/>
+        <Method name="devolver" returnType="void" visibility="public"/>
+        <Method name="requisitar" returnType="void" visibility="public"/>
+        <Method name="cancelaReserva" returnType="void" visibility="public"/>
+        <Method name="reservar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Emprestimo" package="aula11_1" visibility="public" xPosition="251.0" yPosition="334.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="registar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="requisitar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="reservar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="cancelaReserva" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="devolver" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Disponivel" package="aula11_1" visibility="public" xPosition="1229.0" yPosition="278.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="registar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="requisitar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="reservar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="cancelaReserva" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="devolver" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Autor" package="aula11_1" visibility="public" xPosition="1264.0" yPosition="900.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reserva" package="aula11_1" visibility="public" xPosition="1229.0" yPosition="639.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="registar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="requisitar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="reservar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="cancelaReserva" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="devolver" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Aula11" package="aula11_1" visibility="public" xPosition="239.0" yPosition="900.0">
+      <Fields>
+        <Field name="sc" type="Scanner" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="menu" returnType="int[]" visibility="private" isStatic="true">
+          <Argument type="List&lt;Livro&gt;" name="livros"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="EstadoLivro" package="aula11_1" visibility="public" xPosition="755.0" yPosition="96.0">
+      <Methods>
+        <Method name="registar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="requisitar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="reservar" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="cancelaReserva" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+        <Method name="devolver" returnType="void" visibility="public">
+          <Argument type="Livro" name="livro"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="aula11_1.Emprestimo" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.Disponivel" target="aula11_1.EstadoLivro"/>
+    <UseRelation source="aula11_1.Disponivel" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estado" source="aula11_1.Livro" target="aula11_1.EstadoLivro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.Livro" target="aula11_1.EstadoLivro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.Reserva" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.Inventario" target="aula11_1.EstadoLivro"/>
+    <UseRelation source="aula11_1.EstadoLivro" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.Inventario" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.Livro" target="aula11_1.Autor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.Aula11" target="aula11_1.Livro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="autor" source="aula11_1.Livro" target="aula11_1.Autor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.Emprestimo" target="aula11_1.EstadoLivro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.Reserva" target="aula11_1.EstadoLivro"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

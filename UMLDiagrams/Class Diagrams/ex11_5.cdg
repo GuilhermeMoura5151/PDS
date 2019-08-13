@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="aula11_5">
+  <ClassDiagramComponents>
+    <Class name="Aula11_5" package="aula11_5" visibility="public" xPosition="138.0" yPosition="19.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="printFiles" returnType="void" visibility="private" isStatic="true">
+          <Argument type="Map&lt;Path, Map&lt;Path, Integer&gt;&gt;" name="files"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DVisitor" package="aula11_5" visibility="public" xPosition="120.0" yPosition="171.0">
+      <Fields>
+        <Field name="files" type="Map&lt;Path, Map&lt;Path, Integer&gt;&gt;" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+        <Field name="actualDir" type="Path" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="preVisitDirectory" returnType="FileVisitResult" visibility="public">
+          <Argument type="Path" name="dir"/>
+          <Argument type="BasicFileAttributes" name="attrs"/>
+        </Method>
+        <Method name="visitFile" returnType="FileVisitResult" visibility="public">
+          <Argument type="Path" name="file"/>
+          <Argument type="BasicFileAttributes" name="attrs"/>
+        </Method>
+        <Method name="getSize" returnType="int" visibility="public"/>
+        <Method name="getFiles" returnType="Map&lt;Path, Map&lt;Path, Integer&gt;&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

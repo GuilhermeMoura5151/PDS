@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="aula12_2">
+  <ClassDiagramComponents>
+    <Class name="DigitalDisplay" package="aula12_2" visibility="public" xPosition="98.0" yPosition="147.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="tempLabel" type="JLabel" visibility="private"/>
+        <Field name="DEGREE_SYMBOL" type="char" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="thermometer" type="Thermometer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thermometer" name="t"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDisplayString" returnType="String" visibility="private"/>
+        <Method name="temperatureChanged" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DigitalCelsius" package="aula12_2" visibility="public" xPosition="861.0" yPosition="642.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="tempLabel" type="JLabel" visibility="private"/>
+        <Field name="DEGREE_SYMBOL" type="char" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="thermometer" type="Thermometer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thermometer" name="t"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDisplayString" returnType="String" visibility="private"/>
+        <Method name="temperatureChanged" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Aula12_2" package="aula12_2" visibility="public" xPosition="662.0" yPosition="19.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MercuryDisplay" package="aula12_2" visibility="public" xPosition="1195.0" yPosition="291.0">
+      <Fields>
+        <Field name="TUBE_HEIGHT" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="TUBE_WIDTH" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="LEFT" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="TOP" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="COMPONENT_HEIGHT" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="COMPONENT_WIDTH" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="therm" type="Thermometer" visibility="private" isFinal="true"/>
+        <Field name="displayTemperature" type="int" visibility="protected"/>
+        <Field name="minimum" type="int" visibility="protected"/>
+        <Field name="maximum" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+          <Argument type="Thermometer" name="t"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="temperatureChanged" returnType="void" visibility="public"/>
+        <Method name="setCurrent" returnType="void" visibility="protected">
+          <Argument type="int" name="cur"/>
+        </Method>
+        <Method name="paintComponent" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="getMinimumSize" returnType="Dimension" visibility="public"/>
+        <Method name="getPreferredSize" returnType="Dimension" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DigitalMaxTemperature" package="aula12_2" visibility="public" xPosition="197.0" yPosition="588.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="tempLabel" type="JLabel" visibility="private"/>
+        <Field name="DEGREE_SYMBOL" type="char" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="thermometer" type="Thermometer" visibility="protected"/>
+        <Field name="max" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thermometer" name="t"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDisplayString" returnType="String" visibility="private"/>
+        <Method name="temperatureChanged" returnType="void" visibility="public"/>
+        <Method name="convertToCelsius" returnType="double" visibility="private">
+          <Argument type="double" name="temp"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Thermometer" package="aula12_2" visibility="public" xPosition="575.0" yPosition="159.0">
+      <Fields>
+        <Field name="current" type="int" visibility="protected"/>
+        <Field name="listeners" type="ArrayList&lt;ThermometerListener&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="cur"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setCurrent" returnType="void" visibility="public">
+          <Argument type="int" name="cur"/>
+        </Method>
+        <Method name="addThermometerListener" returnType="void" visibility="public">
+          <Argument type="ThermometerListener" name="l"/>
+        </Method>
+        <Method name="removeThermometerListener" returnType="void" visibility="public">
+          <Argument type="ThermometerListener" name="l"/>
+        </Method>
+        <Method name="notifyListeners" returnType="void" visibility="protected"/>
+        <Method name="getTemperature" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="ThermometerListener" package="aula12_2" visibility="public" xPosition="605.0" yPosition="441.0">
+      <Methods>
+        <Method name="temperatureChanged" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="thermometer" source="aula12_2.DigitalMaxTemperature" target="aula12_2.Thermometer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listeners" source="aula12_2.Thermometer" target="aula12_2.ThermometerListener" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ThermometerListener&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula12_2.DigitalDisplay" target="aula12_2.ThermometerListener"/>
+    <UseRelation source="aula12_2.Thermometer" target="aula12_2.Thermometer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="therm" source="aula12_2.MercuryDisplay" target="aula12_2.Thermometer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula12_2.DigitalCelsius" target="aula12_2.ThermometerListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula12_2.DigitalMaxTemperature" target="aula12_2.ThermometerListener"/>
+    <HasRelation name="thermometer" source="aula12_2.DigitalDisplay" target="aula12_2.Thermometer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="thermometer" source="aula12_2.DigitalCelsius" target="aula12_2.Thermometer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula12_2.MercuryDisplay" target="aula12_2.ThermometerListener"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

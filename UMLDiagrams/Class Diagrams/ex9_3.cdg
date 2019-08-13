@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex9_3">
+  <ClassDiagramComponents>
+    <Class name="Delete" package="ex9_3" visibility="public" xPosition="275.0" yPosition="150.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="useCommand" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="List&lt;String&gt;" name="elems"/>
+        </Method>
+        <Method name="write" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Create" package="ex9_3" visibility="public" xPosition="701.0" yPosition="150.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Chain" name="succ"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="useCommand" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="List&lt;String&gt;" name="elems"/>
+        </Method>
+        <Method name="write" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Refresh" package="ex9_3" visibility="public" xPosition="1120.0" yPosition="150.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Chain" name="succ"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="useCommand" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="List&lt;String&gt;" name="elems"/>
+        </Method>
+        <Method name="write" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ex9_3" package="ex9_3" visibility="public" xPosition="1143.0" yPosition="533.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Recover" package="ex9_3" visibility="public" xPosition="275.0" yPosition="499.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Chain" name="succ"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="useCommand" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="List&lt;String&gt;" name="elems"/>
+        </Method>
+        <Method name="write" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Chain" package="ex9_3" visibility="public" isAbstract="true" xPosition="701.0" yPosition="433.0">
+      <Fields>
+        <Field name="succ" type="Chain" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getSucessor" returnType="Chain" visibility="public"/>
+        <Method name="setSucessor" returnType="void" visibility="public">
+          <Argument type="Chain" name="succ"/>
+        </Method>
+        <Method name="useCommand" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="List&lt;String&gt;" name="elems"/>
+        </Method>
+        <Method name="validCommand" returnType="boolean" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="String" name="comm"/>
+        </Method>
+        <Method name="write" returnType="void" visibility="package" isAbstract="true"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="succ" source="ex9_3.Chain" target="ex9_3.Chain" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ex9_3.Recover" target="ex9_3.Chain"/>
+    <IsRelation name="is" source="ex9_3.Delete" target="ex9_3.Chain"/>
+    <IsRelation name="is" source="ex9_3.Refresh" target="ex9_3.Chain"/>
+    <UseRelation source="ex9_3.Chain" target="ex9_3.Chain" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ex9_3.Create" target="ex9_3.Chain"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

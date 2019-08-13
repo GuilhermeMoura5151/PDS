@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex1">
+  <ClassDiagramComponents>
+    <Class name="SharkCompany" package="ex1" visibility="public" xPosition="101.0" yPosition="124.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BankAccountImpl" package="ex1" visibility="public" xPosition="861.0" yPosition="49.0">
+      <Fields>
+        <Field name="bank" type="String" visibility="private"/>
+        <Field name="balance" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="bank"/>
+          <Argument type="double" name="initialDeposit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getBank" returnType="String" visibility="public"/>
+        <Method name="deposit" returnType="void" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="withdraw" returnType="boolean" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Person" package="ex1" visibility="public" xPosition="467.0" yPosition="405.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="bankAccount" type="BankAccount" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="n"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getBankAccount" returnType="BankAccount" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Employee" package="ex1" visibility="public" xPosition="476.0" yPosition="723.0">
+      <Fields>
+        <Field name="salary" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="n"/>
+          <Argument type="double" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSalary" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BankAccountProxy" package="ex1" visibility="public" xPosition="861.0" yPosition="315.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="bank"/>
+          <Argument type="double" name="initialDeposit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="withdraw" returnType="boolean" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Company" package="ex1" visibility="public" xPosition="880.0" yPosition="689.0">
+      <Fields>
+        <Field name="user" type="User" visibility="public" isStatic="true"/>
+        <Field name="emps" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="admitPerson" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="double" name="salary"/>
+        </Method>
+        <Method name="paySalaries" returnType="void" visibility="public">
+          <Argument type="int" name="month"/>
+        </Method>
+        <Method name="employees" returnType="List&lt;Employee&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="BankAccount" package="ex1" visibility="public" xPosition="459.0" yPosition="78.0">
+      <Methods>
+        <Method name="deposit" returnType="void" visibility="package">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="withdraw" returnType="boolean" visibility="package">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Enum name="User" package="ex1" visibility="public" xPosition="1300.0" yPosition="723.0">
+      <Literals>
+        <Literal name="OWNER"/>
+        <Literal name="COMPANY"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="ex1.BankAccountProxy" target="ex1.BankAccountImpl"/>
+    <HasRelation name="user" source="ex1.Company" target="ex1.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex1.BankAccountImpl" target="ex1.BankAccount"/>
+    <HasRelation name="bankAccount" source="ex1.Person" target="ex1.BankAccount" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ex1.Employee" target="ex1.Person"/>
+    <HasRelation name="emps" source="ex1.Company" target="ex1.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <UseRelation source="ex1.Company" target="ex1.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex1.Person" target="ex1.BankAccount" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

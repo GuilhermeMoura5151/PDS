@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex1">
+  <ClassDiagramComponents>
+    <Class name="TeamManager" package="ex1" visibility="public" xPosition="559.0" yPosition="500.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="EmployeeInterface" name="ef"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="work" returnType="void" visibility="public"/>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+        <Method name="manage" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Employee" package="ex1" visibility="public" xPosition="217.0" yPosition="281.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="dataStart" type="Date" visibility="private"/>
+        <Field name="dataTerm" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+        <Method name="work" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EmployeeDecorator" package="ex1" visibility="public" xPosition="901.0" yPosition="271.0">
+      <Fields>
+        <Field name="ef" type="EmployeeInterface" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="EmployeeInterface" name="ef"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="work" returnType="void" visibility="public"/>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="ex1" visibility="public" xPosition="217.0" yPosition="73.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TeamLeader" package="ex1" visibility="public" xPosition="914.0" yPosition="519.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="EmployeeInterface" name="ef"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="work" returnType="void" visibility="public"/>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+        <Method name="plan" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TeamMember" package="ex1" visibility="public" xPosition="1220.0" yPosition="500.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="EmployeeInterface" name="ef"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="work" returnType="void" visibility="public"/>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+        <Method name="colaborate" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="EmployeeInterface" package="ex1" visibility="public" xPosition="559.0" yPosition="73.0">
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Date" name="dataS"/>
+        </Method>
+        <Method name="terminate" returnType="void" visibility="public">
+          <Argument type="Date" name="dataT"/>
+        </Method>
+        <Method name="work" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="ex1.TeamMember" target="ex1.EmployeeDecorator"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex1.Employee" target="ex1.EmployeeInterface"/>
+    <HasRelation name="ef" source="ex1.EmployeeDecorator" target="ex1.EmployeeInterface" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex1.EmployeeDecorator" target="ex1.EmployeeInterface"/>
+    <IsRelation name="is" source="ex1.TeamManager" target="ex1.EmployeeDecorator"/>
+    <IsRelation name="is" source="ex1.TeamLeader" target="ex1.EmployeeDecorator"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

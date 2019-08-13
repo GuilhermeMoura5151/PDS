@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="aula11_1">
+  <ClassDiagramComponents>
+    <Class name="SelectSort" package="aula11_1" visibility="public" xPosition="1468.0" yPosition="254.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="sort" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="List&lt;Telemovel&gt;" name="telemovel"/>
+          <Argument type="Comparator&lt;Telemovel&gt;" name="comparator"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="InsertSort" package="aula11_1" visibility="public" xPosition="1571.0" yPosition="816.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="sort" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="List&lt;Telemovel&gt;" name="telemovel"/>
+          <Argument type="Comparator&lt;Telemovel&gt;" name="comparator"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Revista" package="aula11_1" visibility="public" xPosition="139.0" yPosition="897.0">
+      <Fields>
+        <Field name="telemovel" type="List&lt;Telemovel&gt;" visibility="private"/>
+        <Field name="revista" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="revista"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getpreco" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="StrategySort" name="strategy"/>
+        </Method>
+        <Method name="getmemoria" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="StrategySort" name="strategy"/>
+        </Method>
+        <Method name="getprocessador" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="StrategySort" name="strategy"/>
+        </Method>
+        <Method name="getcamera" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="StrategySort" name="strategy"/>
+        </Method>
+        <Method name="addTelemovel" returnType="void" visibility="public">
+          <Argument type="Telemovel" name="telemoveis"/>
+        </Method>
+        <Method name="setRevista" returnType="void" visibility="package">
+          <Argument type="List&lt;Telemovel&gt;" name="telemoveis"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BubbleSort" package="aula11_1" visibility="public" xPosition="113.0" yPosition="576.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="sort" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="List&lt;Telemovel&gt;" name="telemovel"/>
+          <Argument type="Comparator&lt;Telemovel&gt;" name="comparator"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Aula11" package="aula11_1" visibility="public" xPosition="139.0" yPosition="198.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Telemovel" package="aula11_1" visibility="public" xPosition="848.0" yPosition="672.0">
+      <Fields>
+        <Field name="memoria" type="double" visibility="private"/>
+        <Field name="preco" type="double" visibility="private"/>
+        <Field name="processador" type="double" visibility="private"/>
+        <Field name="camera" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="memoria"/>
+          <Argument type="double" name="preco"/>
+          <Argument type="double" name="processador"/>
+          <Argument type="double" name="camera"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="buildRandomCellPhone" returnType="Telemovel" visibility="public" isStatic="true"/>
+        <Method name="getRandomNumber" returnType="double" visibility="public" isStatic="true"/>
+        <Method name="getMemoria" returnType="double" visibility="public"/>
+        <Method name="setMemoria" returnType="void" visibility="public">
+          <Argument type="double" name="memoria"/>
+        </Method>
+        <Method name="getPreco" returnType="double" visibility="public"/>
+        <Method name="setPreco" returnType="void" visibility="public">
+          <Argument type="double" name="preco"/>
+        </Method>
+        <Method name="getProcessador" returnType="double" visibility="public"/>
+        <Method name="setProcessador" returnType="void" visibility="public">
+          <Argument type="double" name="processador"/>
+        </Method>
+        <Method name="getCamera" returnType="double" visibility="public"/>
+        <Method name="setCamera" returnType="void" visibility="public">
+          <Argument type="double" name="camera"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="StrategySort" package="aula11_1" visibility="public" xPosition="569.0" yPosition="114.0">
+      <Methods>
+        <Method name="sort" returnType="List&lt;Telemovel&gt;" visibility="public">
+          <Argument type="List&lt;Telemovel&gt;" name="telemovel"/>
+          <Argument type="Comparator&lt;Telemovel&gt;" name="comparator"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.BubbleSort" target="aula11_1.StrategySort"/>
+    <UseRelation source="aula11_1.Telemovel" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.StrategySort" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.BubbleSort" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="aula11_1.SelectSort" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.InsertSort" target="aula11_1.StrategySort"/>
+    <HasRelation name="telemovel" source="aula11_1.Revista" target="aula11_1.Telemovel" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Telemovel&gt;"/>
+    <UseRelation source="aula11_1.InsertSort" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula11_1.SelectSort" target="aula11_1.StrategySort"/>
+    <UseRelation source="aula11_1.Revista" target="aula11_1.Telemovel" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

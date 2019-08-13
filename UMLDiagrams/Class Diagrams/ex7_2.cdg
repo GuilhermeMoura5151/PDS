@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex2">
+  <ClassDiagramComponents>
+    <Class name="ReaderDecorator" package="ex2" visibility="public" isAbstract="true" xPosition="736.0" yPosition="538.0">
+      <Fields>
+        <Field name="read" type="Reader" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Reader" name="read"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TextReader" package="ex2" visibility="public" xPosition="206.0" yPosition="538.0">
+      <Fields>
+        <Field name="potato" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="file_name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="File" name="file1"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TermFilter" package="ex2" visibility="public" xPosition="528.0" yPosition="758.0">
+      <Fields>
+        <Field name="potato" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Reader" name="read"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="ex2" visibility="public" xPosition="206.0" yPosition="333.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CodeFilter" package="ex2" visibility="public" xPosition="754.0" yPosition="758.0">
+      <Fields>
+        <Field name="sc" type="Scanner" visibility="package"/>
+        <Field name="converter" type="MessageDigest" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Reader" name="read"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+        <Method name="convertDigest" returnType="String" visibility="private">
+          <Argument type="byte[]" name="data"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ReverseFilter" package="ex2" visibility="public" xPosition="1046.0" yPosition="758.0">
+      <Fields>
+        <Field name="potato" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Reader" name="reader"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="invertWord" returnType="String" visibility="private">
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Reader" package="ex2" visibility="public" xPosition="510.0" yPosition="333.0">
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.TextReader" target="ex2.Reader"/>
+    <IsRelation name="is" source="ex2.CodeFilter" target="ex2.ReaderDecorator"/>
+    <IsRelation name="is" source="ex2.ReverseFilter" target="ex2.ReaderDecorator"/>
+    <IsRelation name="is" source="ex2.TermFilter" target="ex2.ReaderDecorator"/>
+    <HasRelation name="read" source="ex2.ReaderDecorator" target="ex2.Reader" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.ReaderDecorator" target="ex2.Reader"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

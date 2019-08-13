@@ -1,0 +1,16 @@
+Classe Abstrata java.io.InputStream:
+
+Implementa uma interface chamada Closeable que extende uma interface Autocloseable.
+Existencia do metodo read.
+----------------------------------------------------------------------------------------
+
+Classe Abstrata java.io.Reader:
+
+Implementa duas interfaces e contem um metodo close que implementa a interface Closeable.
+Existencia do metodo read.
+----------------------------------------------------------------------------------------
+
+Classe Abstrata java.io.Writer:
+
+Tem um metodo abstrato writer que é usado como PrintWriter noutras classes.
+

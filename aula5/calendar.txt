@@ -1,0 +1,5 @@
+java.util.Calendar creational patters found:
+
+Singleton - line 937 to 1014
+Abstract Factory - line 1016
+Prototype - line 2094

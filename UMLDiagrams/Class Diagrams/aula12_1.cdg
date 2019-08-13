@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="aula12_1">
+  <ClassDiagramComponents>
+    <Class name="ClassA" package="aula12_1.Plugins" visibility="public" xPosition="392.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fazQualquerCoisa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PluginManager" package="aula12_1" visibility="public" isAbstract="true" xPosition="64.0" yPosition="186.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="load" returnType="IPlugin" visibility="public" isStatic="true">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Plugin" package="aula12_1" visibility="public" xPosition="372.0" yPosition="193.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IPlugin" package="aula12_1" visibility="public" xPosition="64.0" yPosition="20.0">
+      <Methods>
+        <Method name="fazQualquerCoisa" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="aula12_1.Plugins.ClassA" target="aula12_1.IPlugin"/>
+    <UseRelation source="aula12_1.PluginManager" target="aula12_1.Plugin" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

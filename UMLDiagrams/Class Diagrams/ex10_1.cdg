@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex1">
+  <ClassDiagramComponents>
+    <Class name="Aula10" package="ex1" visibility="public" xPosition="248.0" yPosition="94.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Leilao" package="ex1" visibility="public" xPosition="518.0" yPosition="94.0">
+      <Fields>
+        <Field name="bestOffer" type="Cliente" visibility="private"/>
+        <Field name="referee" type="Gestor" visibility="private"/>
+        <Field name="currentBet" type="double" visibility="private"/>
+        <Field name="sale" type="Produto" visibility="private"/>
+        <Field name="vendas" type="List&lt;Produto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Gestor" name="referee"/>
+          <Argument type="Produto" name="sale"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="checkProductState" returnType="void" visibility="public"/>
+        <Method name="startLeilao" returnType="void" visibility="public">
+          <Argument type="Gestor" name="gestor"/>
+        </Method>
+        <Method name="receiveBet" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+          <Argument type="double" name="bet"/>
+        </Method>
+        <Method name="closeBet" returnType="void" visibility="public">
+          <Argument type="Gestor" name="gestor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Gestor" package="ex1" visibility="public" xPosition="1237.0" yPosition="568.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="stockProduto" type="List&lt;Produto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addProductList" returnType="void" visibility="public">
+          <Argument type="Produto" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Produto" package="ex1" visibility="public" xPosition="1071.0" yPosition="94.0">
+      <Fields>
+        <Field name="productCode" type="int" visibility="private"/>
+        <Field name="descricao" type="String" visibility="private"/>
+        <Field name="preco" type="double" visibility="private"/>
+        <Field name="state" type="ProdutoState" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="descricao"/>
+          <Argument type="double" name="precoBase"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getState" returnType="ProdutoState" visibility="public"/>
+        <Method name="getActualPrice" returnType="double" visibility="public"/>
+        <Method name="updatePrice" returnType="void" visibility="public">
+          <Argument type="double" name="bet"/>
+        </Method>
+        <Method name="changeProductState" returnType="void" visibility="public">
+          <Argument type="ProdutoState" name="change"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="ex1" visibility="public" xPosition="544.0" yPosition="576.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="LeilaoInterface" package="ex1" visibility="public" xPosition="812.0" yPosition="597.0">
+      <Methods>
+        <Method name="startLeilao" returnType="void" visibility="public">
+          <Argument type="Gestor" name="gestor"/>
+        </Method>
+        <Method name="receiveBet" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+          <Argument type="double" name="bet"/>
+        </Method>
+        <Method name="closeBet" returnType="void" visibility="public">
+          <Argument type="Gestor" name="gestor"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Enum name="ProdutoState" package="ex1" visibility="public" xPosition="1508.0" yPosition="145.0">
+      <Literals>
+        <Literal name="LEILAO"/>
+        <Literal name="STOCK"/>
+        <Literal name="VENDAS"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="state" source="ex1.Produto" target="ex1.ProdutoState" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex1.LeilaoInterface" target="ex1.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex1.Leilao" target="ex1.Gestor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vendas" source="ex1.Leilao" target="ex1.Produto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Produto&gt;"/>
+    <UseRelation source="ex1.Leilao" target="ex1.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex1.Gestor" target="ex1.Produto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bestOffer" source="ex1.Leilao" target="ex1.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex1.LeilaoInterface" target="ex1.Gestor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sale" source="ex1.Leilao" target="ex1.Produto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="referee" source="ex1.Leilao" target="ex1.Gestor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex1.Leilao" target="ex1.LeilaoInterface"/>
+    <UseRelation source="ex1.Produto" target="ex1.ProdutoState" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="stockProduto" source="ex1.Gestor" target="ex1.Produto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Produto&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

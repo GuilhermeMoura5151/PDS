@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex2">
+  <ClassDiagramComponents>
+    <Class name="Parking" package="ex2" visibility="public" xPosition="511.0" yPosition="400.0">
+      <Fields>
+        <Field name="person" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getPerson" returnType="List&lt;Employee&gt;" visibility="public"/>
+        <Method name="allow" returnType="void" visibility="public">
+          <Argument type="Employee" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EmployeeCard" package="ex2" visibility="public" xPosition="1626.0" yPosition="55.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="code" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getCode" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BankAccountImpl" package="ex2" visibility="public" xPosition="87.0" yPosition="470.0">
+      <Fields>
+        <Field name="bank" type="String" visibility="private"/>
+        <Field name="balance" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="bank"/>
+          <Argument type="double" name="initialDeposit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getBank" returnType="String" visibility="public"/>
+        <Method name="deposit" returnType="void" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="withdraw" returnType="boolean" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SocialSecurity" package="ex2" visibility="public" xPosition="899.0" yPosition="781.0">
+      <Fields>
+        <Field name="person" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="regist" returnType="void" visibility="public">
+          <Argument type="Employee" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Person" package="ex2" visibility="public" xPosition="479.0" yPosition="730.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="bankAccount" type="BankAccount" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="n"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getBankAccount" returnType="BankAccount" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Employee" package="ex2" visibility="public" xPosition="930.0" yPosition="383.0">
+      <Fields>
+        <Field name="person" type="Person" visibility="private"/>
+        <Field name="salary" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Person" name="person"/>
+          <Argument type="double" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSalary" returnType="double" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="paySalary" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EmployeeManagerFacade" package="ex2" visibility="public" xPosition="642.0" yPosition="55.0">
+      <Fields>
+        <Field name="security" type="SocialSecurity" visibility="private"/>
+        <Field name="insurance" type="Insurance" visibility="private"/>
+        <Field name="park" type="Parking" visibility="private"/>
+        <Field name="card" type="Map&lt;EmployeeCard, Employee&gt;" visibility="private"/>
+        <Field name="emps" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SocialSecurity" name="security"/>
+          <Argument type="Insurance" name="insurance"/>
+          <Argument type="Parking" name="park"/>
+          <Argument type="Map&lt;EmployeeCard, Employee&gt;" name="card"/>
+          <Argument type="List&lt;Employee&gt;" name="emps"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="registEmployee" returnType="void" visibility="public">
+          <Argument type="Person" name="person"/>
+          <Argument type="double" name="salary"/>
+        </Method>
+        <Method name="averageSalary" returnType="double" visibility="public"/>
+        <Method name="personsAllowedToPark" returnType="List&lt;Employee&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BankAccountProxy" package="ex2" visibility="public" xPosition="87.0" yPosition="177.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="bank"/>
+          <Argument type="double" name="initialDeposit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="withdraw" returnType="boolean" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Company" package="ex2" visibility="public" xPosition="1522.0" yPosition="383.0">
+      <Fields>
+        <Field name="user" type="User" visibility="public" isStatic="true"/>
+        <Field name="emps" type="List&lt;Employee&gt;" visibility="private"/>
+        <Field name="cards" type="Map&lt;EmployeeCard, Employee&gt;" visibility="private"/>
+        <Field name="facade" type="EmployeeManagerFacade" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="admitEmployee" returnType="void" visibility="public">
+          <Argument type="Person" name="person"/>
+          <Argument type="double" name="salary"/>
+        </Method>
+        <Method name="personsAllowedToPark" returnType="List&lt;Employee&gt;" visibility="public"/>
+        <Method name="paySalaries" returnType="void" visibility="public">
+          <Argument type="int" name="month"/>
+        </Method>
+        <Method name="getAverageSalary" returnType="double" visibility="public"/>
+        <Method name="employees" returnType="List&lt;Employee&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Insurance" package="ex2" visibility="public" xPosition="1311.0" yPosition="764.0">
+      <Fields>
+        <Field name="person" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="regist" returnType="void" visibility="public">
+          <Argument type="Employee" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="ex2" visibility="public" xPosition="87.0" yPosition="43.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="BankAccount" package="ex2" visibility="public" xPosition="142.0" yPosition="753.0">
+      <Methods>
+        <Method name="deposit" returnType="void" visibility="package">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="withdraw" returnType="boolean" visibility="package">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="balance" returnType="double" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Enum name="User" package="ex2" visibility="public" xPosition="1716.0" yPosition="680.0">
+      <Literals>
+        <Literal name="OWNER"/>
+        <Literal name="COMPANY"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="security" source="ex2.EmployeeManagerFacade" target="ex2.SocialSecurity" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.EmployeeManagerFacade" target="ex2.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.SocialSecurity" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ex2.BankAccountProxy" target="ex2.BankAccountImpl"/>
+    <HasRelation name="person" source="ex2.SocialSecurity" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <HasRelation name="person" source="ex2.Insurance" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <UseRelation source="ex2.Company" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="card" source="ex2.EmployeeManagerFacade" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;EmployeeCard, Employee&gt;"/>
+    <HasRelation name="bankAccount" source="ex2.Person" target="ex2.BankAccount" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ex2.BankAccountImpl" target="ex2.BankAccount"/>
+    <HasRelation name="park" source="ex2.EmployeeManagerFacade" target="ex2.Parking" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="person" source="ex2.Parking" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <UseRelation source="ex2.Company" target="ex2.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="emps" source="ex2.EmployeeManagerFacade" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <UseRelation source="ex2.Insurance" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="person" source="ex2.Employee" target="ex2.Person" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="insurance" source="ex2.EmployeeManagerFacade" target="ex2.Insurance" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cards" source="ex2.Company" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;EmployeeCard, Employee&gt;"/>
+    <HasRelation name="facade" source="ex2.Company" target="ex2.EmployeeManagerFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.Person" target="ex2.BankAccount" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.EmployeeManagerFacade" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="user" source="ex2.Company" target="ex2.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="emps" source="ex2.Company" target="ex2.Employee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Employee&gt;"/>
+    <UseRelation source="ex2.Parking" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ex2">
+  <ClassDiagramComponents>
+    <Class name="EmployeeNull" package="ex2" visibility="public" xPosition="337.0" yPosition="133.0">
+      <Fields>
+        <Field name="nameReturn" type="String" visibility="private"/>
+        <Field name="instance" type="EmployeeNull" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="EmployeeNull" visibility="public" isStatic="true" isSynchronized="true"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Aula10_2" package="ex2" visibility="public" xPosition="372.0" yPosition="381.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Employee" package="ex2" visibility="public" isAbstract="true" xPosition="770.0" yPosition="133.0">
+      <Fields>
+        <Field name="name" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="EmployeeFactory" package="ex2" visibility="public" xPosition="697.0" yPosition="373.0">
+      <Fields>
+        <Field name="names" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCustomer" returnType="Employee" visibility="public" isStatic="true">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Programmer" package="ex2" visibility="public" xPosition="1057.0" yPosition="133.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="ex2.EmployeeNull" target="ex2.Employee"/>
+    <HasRelation name="instance" source="ex2.EmployeeNull" target="ex2.EmployeeNull" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ex2.Programmer" target="ex2.Employee"/>
+    <UseRelation source="ex2.EmployeeNull" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ex2.EmployeeFactory" target="ex2.Employee" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

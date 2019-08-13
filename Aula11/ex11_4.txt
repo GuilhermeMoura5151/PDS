@@ -1,0 +1,6 @@
+Exercicio 11_4
+
+Número de Padrões: 23
+Respostas erradas: 15
+Intents: 9
+
